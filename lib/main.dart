@@ -2,6 +2,7 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 
 import 'Screens/add_post_screen_state.dart';
+import 'Screens/user_info_screen_state.dart';
 
 void main() async{
   WidgetsFlutterBinding.ensureInitialized();
@@ -30,7 +31,8 @@ class MyApp extends StatelessWidget {
         // is not restarted.
         primarySwatch: Colors.blue,
       ),
-      home: AddpostScreenState(),
+      home: UserInfo(),
+      // home: AddpostScreenState(),
     );
   }
 }
