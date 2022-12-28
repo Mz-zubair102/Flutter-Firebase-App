@@ -4,7 +4,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 
 import '../Widgets/text_field.dart';
-import '../Widgets/widget_text_button.dart';
+import '../Widgets/text_button_widget.dart';
 
 class AddpostScreenState extends StatefulWidget {
   const AddpostScreenState({Key? key}) : super(key: key);
@@ -18,6 +18,7 @@ class _AddpostScreenStateState extends State<AddpostScreenState> {
   TextEditingController titlecontroller = TextEditingController();
   TextEditingController bodycontroller = TextEditingController();
   CollectionReference postRefrence=FirebaseFirestore.instance.collection("Post");
+  CollectionReference commentRefrence=FirebaseFirestore.instance.collection("Post").doc().collection("Comments");
 
   //add data to firebase
   void addPostToFirestore(String titletext,String bodytext)async{
@@ -66,7 +67,7 @@ class _AddpostScreenStateState extends State<AddpostScreenState> {
                   SizedBox(
                     height: 25,
                   ),
-                  widgetTextButton(btnname: "Submit",onpressed: ()async{
+                  TextButtonWidget(btnname: "Submit",onpressed: ()async{
                     if (formkey.currentState!.validate()) {
                       addPostToFirestore(titlecontroller.text, bodycontroller.text);
                       var snackBar = SnackBar(

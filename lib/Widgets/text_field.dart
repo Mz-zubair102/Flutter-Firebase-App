@@ -85,7 +85,7 @@ class _TextInputFieldState extends State<TextInputField> {
             if (widget.isname) {
             if (input == null || input.isEmpty) {
                 return "Name is required";
-            } else if ((!RegExp(r'^[a-z A-Z]+$').hasMatch(input))) {
+            } else if ((!RegExp(r'^[a-z A-Z.\-]+$').hasMatch(input))) {
                 return 'Please Enter only Alphabets ';
             }
             }
@@ -108,7 +108,7 @@ class _TextInputFieldState extends State<TextInputField> {
               if (input == null || input.isEmpty) {
                 return "Password is required";
               } else
-              if ((!RegExp(r'^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[!@#\$&*~]).{8,}$').hasMatch(input))) {
+              if ((!RegExp(r'^(?=.*?[A-Z]{1})(?=.*?[a-z])(?=.*?[0-9]{3})(?=.*?[!@#\$&*~]{1}).{8,}$').hasMatch(input))) {
                 return 'Please Enter valid password';
               }
             }
@@ -121,7 +121,7 @@ class _TextInputFieldState extends State<TextInputField> {
             }
             if (widget.iscnic) {
               if (input == null || input.isEmpty) {
-                return "Phone is required";
+                return "Cnic Numbaer is required";
               } else if ((!RegExp(r"^[0-9]{5}-[0-9]{7}-[0-9]{1}$").hasMatch(input))) {
                 return 'Please Enter only 13 Digit CNIC Number With Dashes ';
               }

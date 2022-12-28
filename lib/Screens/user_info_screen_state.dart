@@ -3,16 +3,16 @@ import 'package:flutter_pw_validator/flutter_pw_validator.dart';
 import 'package:firebase/Widgets/text_field.dart';
 import 'package:flutter/material.dart';
 
-import '../Widgets/widget_text_button.dart';
+import '../Widgets/text_button_widget.dart';
 
-class UserInfo extends StatefulWidget {
-  const UserInfo({Key? key}) : super(key: key);
+class UserInfoScreenState extends StatefulWidget {
+  const UserInfoScreenState({Key? key}) : super(key: key);
 
   @override
-  State<UserInfo> createState() => _UserInfoState();
+  State<UserInfoScreenState> createState() => _UserInfoScreenStateState();
 }
 
-class _UserInfoState extends State<UserInfo> {
+class _UserInfoScreenStateState extends State<UserInfoScreenState> {
   GlobalKey<FormState>  formkey=GlobalKey();
   TextEditingController namecontroller=TextEditingController();
   TextEditingController usernamecontroller=TextEditingController();
@@ -44,44 +44,46 @@ class _UserInfoState extends State<UserInfo> {
       body: Form(
         key: formkey,
         child: SafeArea(
-          child: SingleChildScrollView(
-            child: Padding(
-              padding: EdgeInsets.all(12.0),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.spaceAround,
-                children: [
-                  TextInputField(label: "Name..",hinttext: "Name",mycontroller: namecontroller,isname: true,),
-                  TextInputField(label: "User Name..",hinttext: "User Name",mycontroller: usernamecontroller,isusername: true,),
-                  TextInputField(label: "Email..",hinttext: "Email",mycontroller: emailcontroller,isemail: true,),
-                  TextInputField(label: "Password..",hinttext: "Password",mycontroller: passwordcontroller,isobscure: true,ispassword: true,),
-                  FlutterPwValidator(width: 350, height: 120, minLength: 8,uppercaseCharCount: 1,numericCharCount: 3,specialCharCount: 1,successColor: Colors.cyan,failureColor:Colors.red,onSuccess:(){
-                    print("MATCHED");
-                    ScaffoldMessenger.of(context).showSnackBar(new SnackBar(
-                        content: new Text("Password is matched")));
-                    onFail: () {
-                      print("NOT MATCHED");
-                    };
-                  } , controller: passwordcontroller),
-                  SizedBox(height: 5,),
-                  TextInputField(label: "Phone..",hinttext: "Phone",mycontroller: phonecontroller,isphone: true,),
-                  TextInputField(label: "CNIC..",hinttext: "CNIC",mycontroller: cniccontroller,iscnic: true,),
-                  SizedBox(height: 10,),
-                  widgetTextButton(btnname: "Submit User Info",
-                  onpressed: ()async{
-                    if (formkey.currentState!.validate()) {
-                      addUserToFirestore(namecontroller.text,usernamecontroller.text,emailcontroller.text,
-                        passwordcontroller.text,phonecontroller.text,cniccontroller.text,
-                      );
-                      var snackBar = SnackBar(
-                        content: Text("Successfully data is transferred"),
-                      );
-                      ScaffoldMessenger.of(context).showSnackBar(snackBar);
-                    }
-                  },
-                  )
+          child: Padding(
+            padding: EdgeInsets.all(12.0),
+            child: ListView(
+              children: [
+                Column(
+                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  children: [
+                    TextInputField(label: "Name..",hinttext: "Name",mycontroller: namecontroller,isname: true,),
+                    TextInputField(label: "User Name..",hinttext: "User Name",mycontroller: usernamecontroller,isusername: true,),
+                    TextInputField(label: "Email..",hinttext: "Email",mycontroller: emailcontroller,isemail: true,),
+                    TextInputField(label: "Password..",hinttext: "Password",mycontroller: passwordcontroller,isobscure: true,ispassword: true,),
+                    FlutterPwValidator(width: 350, height: 120, minLength: 8,uppercaseCharCount: 1,numericCharCount: 3,specialCharCount: 1,successColor: Colors.green,failureColor:Colors.red,onSuccess:(){
+                      print("MATCHED");
+                      ScaffoldMessenger.of(context).showSnackBar(new SnackBar(
+                          content: new Text("Password is matched")));
+                      onFail: () {
+                        print("NOT MATCHED");
+                      };
+                    } , controller: passwordcontroller),
+                    SizedBox(height: 5,),
+                    TextInputField(label: "Phone..",hinttext: "Phone",mycontroller: phonecontroller,isphone: true,),
+                    TextInputField(label: "CNIC..",hinttext: "CNIC",mycontroller: cniccontroller,iscnic: true,),
+                    SizedBox(height: 5,),
+                    TextButtonWidget(btnname: "Submit User Info",
+                      onpressed: ()async{
+                        if (formkey.currentState!.validate()) {
+                          addUserToFirestore(namecontroller.text,usernamecontroller.text,emailcontroller.text,
+                            passwordcontroller.text,phonecontroller.text,cniccontroller.text,
+                          );
+                          var snackBar = SnackBar(
+                            content: Text("Successfully data is transferred"),
+                          );
+                          ScaffoldMessenger.of(context).showSnackBar(snackBar);
+                        }
+                      },
+                    )
 
-                ],
-              ),
+                  ],
+                ),
+              ],
             ),
           ),
         ),
