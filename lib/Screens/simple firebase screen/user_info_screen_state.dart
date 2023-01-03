@@ -3,7 +3,7 @@ import 'package:flutter_pw_validator/flutter_pw_validator.dart';
 import 'package:firebase/Widgets/text_field.dart';
 import 'package:flutter/material.dart';
 
-import '../Widgets/text_button_widget.dart';
+import '../../Widgets/text_button_widget.dart';
 
 class UserInfoScreenState extends StatefulWidget {
   const UserInfoScreenState({Key? key}) : super(key: key);

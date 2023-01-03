@@ -16,9 +16,9 @@ class _TextWidgetState extends State<TextWidget> {
       crossAxisAlignment: CrossAxisAlignment.start,
       // mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
-        Text("${widget.title} : ",style: TextStyle(fontSize: 18,fontWeight: FontWeight.bold,color: Colors.blue),),
+        Text("${widget.title} : ",style: TextStyle(fontSize: 18,fontWeight: FontWeight.bold,color: Colors.lightBlueAccent),),
         SizedBox(height: 5,),
-        Text("${widget.detail} : ",style: TextStyle(fontSize: 18,color: Colors.cyan),)],
+        Text("${widget.detail}  ",style: TextStyle(fontSize: 18,color: Colors.grey.shade700),)],
     );
   }
 }

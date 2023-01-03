@@ -4,9 +4,9 @@ import 'package:firebase/Widgets/text_field.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 
-import '../Models/comment_model.dart';
-import '../Models/post_model.dart';
-import '../Widgets/text_widget.dart';
+import '../../Models/comment_model.dart';
+import '../../Models/post_model.dart';
+import '../../Widgets/text_widget.dart';
 
 class PostDetailScreen extends StatefulWidget {
   final PostModel detail;

@@ -4,7 +4,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase/Models/user_model.dart';
 import 'package:flutter/material.dart';
 
-import '../Widgets/text_widget.dart';
+import '../../Widgets/text_widget.dart';
 
 
 class UsersListScreen extends StatefulWidget {

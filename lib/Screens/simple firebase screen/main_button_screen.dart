@@ -1,10 +1,10 @@
 
-import 'package:firebase/Screens/post_list_screen.dart';
-import 'package:firebase/Screens/user_info_screen_state.dart';
-import 'package:firebase/Screens/users_list_screen.dart';
+import 'package:firebase/Screens/simple%20firebase%20screen/post_list_screen.dart';
+import 'package:firebase/Screens/simple%20firebase%20screen/user_info_screen_state.dart';
+import 'package:firebase/Screens/simple%20firebase%20screen/users_list_screen.dart';
 import 'package:flutter/material.dart';
-import '../Widgets/main_screen_button_widget.dart';
-import 'add_post_screen_state.dart';
+import '../../Widgets/main_screen_button_widget.dart';
+import '../home_screen.dart';
 
 class ButtonScreen1 extends StatefulWidget {
   const ButtonScreen1({Key? key}) : super(key: key);
@@ -42,7 +42,7 @@ class _ButtonScreen1State extends State<ButtonScreen1> {
                   iconss: Icon(Icons.post_add_outlined,
                   ),
 
-                  onpressesd:(){Navigator.push(context, MaterialPageRoute(builder: (context)=>AddpostScreenState()));} ,),
+                  onpressesd:(){Navigator.push(context, MaterialPageRoute(builder: (context)=>HomeScreen()));} ,),
                 MainScreenButtonWidget(buttonname: "Post List Screen", iconss: Icon(Icons.post_add_outlined),
                 onpressesd: (){Navigator.push(context, MaterialPageRoute(builder: (context)=>PostListScreen()));},
                 ),

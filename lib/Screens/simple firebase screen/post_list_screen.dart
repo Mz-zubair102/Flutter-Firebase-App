@@ -1,6 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase/Models/post_model.dart';
-import 'package:firebase/Screens/post_detail_screen.dart';
+import 'package:firebase/Screens/simple%20firebase%20screen/post_detail_screen.dart';
 import 'package:firebase/Widgets/text_widget.dart';
 import 'package:flutter/material.dart';
 
@@ -21,7 +21,7 @@ class _PostListScreenState extends State<PostListScreen> {
         .then((QuerySnapshot querySnapshot) {
       for (var doc in querySnapshot.docs){
         Map<String,dynamic> docData=doc.data() as Map<String, dynamic>;
-        postlist.add(PostModel.froJson(docData, doc.id));
+        postlist.add(PostModel.fromJson(docData, doc.id));
     }
       print("Postlist.length");
       print(postlist.length);

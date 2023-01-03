@@ -1,10 +1,13 @@
+import 'package:firebase/Screens/login_screen.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 
-import 'Screens/add_post_screen_state.dart';
-import 'Screens/main_button_screen.dart';
-import 'Screens/user_info_screen_state.dart';
-import 'Screens/users_list_screen.dart';
+import 'Screens/home_screen.dart';
+import 'Screens/simple firebase screen/main_button_screen.dart';
+import 'Screens/signup_screen.dart';
+import 'Screens/simple firebase screen/user_info_screen_state.dart';
+import 'Screens/simple firebase screen/users_list_screen.dart';
+import 'Screens/splash_screen.dart';
 
 void main() async{
   WidgetsFlutterBinding.ensureInitialized();
@@ -33,8 +36,8 @@ class MyApp extends StatelessWidget {
         // is not restarted.
         primarySwatch: Colors.blue,
       ),
-      // home: UsersListScreen(),
-      home: ButtonScreen1(),
+      // home: ButtonScreen1(),
+      home: SplashScreen(),
       // home: UserInfo(),
       // home: AddpostScreenState(),
     );
